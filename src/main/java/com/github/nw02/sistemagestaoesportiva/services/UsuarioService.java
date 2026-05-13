@@ -21,10 +21,6 @@ public class UsuarioService {
 
     @Transactional
     public Usuario atualizarUsuario (Usuario usuario){
-        if(usuario.getId() == null){
-            throw new IllegalArgumentException("Id não pode ser nulo!");
-        }
-
         Usuario usuarioNovo = usuarioRepository.findById(usuario.getId()).
                 orElseThrow(() -> new RecursoNaoEncontrado("Usuario nao encontrado!"));
 
